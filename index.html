@@ -1,0 +1,3014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayan Web Studio - AI Powered Premium Website Solutions</title>
+    <meta name="description" content="Premium futuristic websites for brands who want to stand out. AI-powered web development, design, photography services by Rt Ayan.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00f0ff;
+            --secondary: #0a0a0a;
+            --accent: #00d4ff;
+            --glow: 0 0 20px rgba(0, 240, 255, 0.5);
+            --card-bg: rgba(20, 20, 40, 0.6);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #000814 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .particle {
+            position: fixed;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 10s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-100px) translateX(50px); }
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: var(--glow);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        .currency-selector {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .currency-selector select, .lang-switcher select {
+            padding: 10px 15px;
+            background: rgba(10, 10, 26, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5% 50px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00f0ff, #00d4ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.8)); }
+            50% { filter: drop-shadow(0 0 40px rgba(0, 240, 255, 1)); }
+        }
+        
+        .hero-content p {
+            font-size: clamp(18px, 2vw, 24px);
+            margin-bottom: 40px;
+            color: #aaaaaa;
+        }
+        
+        .tagline {
+            font-size: clamp(16px, 1.8vw, 20px);
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s;
+        }
+        
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.8);
+        }
+        
+        section {
+            padding: 100px 5%;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(35px, 5vw, 50px);
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+        
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.3);
+            border-color: var(--primary);
+        }
+        
+        #about .glass-card {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #about p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: #aaaaaa;
+            line-height: 1.6;
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 100, 0, 0.8);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.8), rgba(0, 212, 255, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .portfolio-item:hover::before {
+            opacity: 1;
+        }
+        
+        .portfolio-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .portfolio-item:hover .portfolio-content {
+            transform: translateY(0);
+        }
+        
+        .portfolio-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.4);
+        }
+        
+        .pricing-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0;
+            color: #ffffff;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            padding: 0;
+        }
+        
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cccccc;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-item a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .terms-card {
+            padding: 30px;
+        }
+        
+        .terms-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .terms-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .terms-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #aaa;
+        }
+        
+        .terms-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .control-panel {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+        
+        .login-btn, .control-btn {
+            padding: 15px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+        
+        .login-btn:hover, .control-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.5);
+        }
+        
+        /* FIXED: Control Panel Styles */
+        .control-panel-content {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .control-panel-content.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .control-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 15px;
+        }
+        
+        .control-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #333;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .switch.active {
+            background: var(--primary);
+        }
+        
+        .switch::after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s;
+        }
+        
+        .switch.active::after {
+            left: 32px;
+        }
+        
+        .chatbot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10000;
+        }
+        
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 5px 25px rgba(0, 240, 255, 0.5);
+            transition: transform 0.3s;
+        }
+        
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            height: 550px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .chatbot-window.active {
+            display: flex;
+        }
+        
+        .chatbot-header {
+            padding: 20px;
+            background: rgba(0, 240, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .chatbot-input-area {
+            padding: 15px;
+            border-top: 1px solid rgba(0, 240, 255, 0.3);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chatbot-input-area input {
+            flex: 1;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            color: #ffffff;
+        }
+        
+        .chatbot-input-area button {
+            padding: 12px 20px;
+            background: var(--primary);
+            border: none;
+            border-radius: 20px;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+        
+        .message.bot {
+            background: rgba(0, 240, 255, 0.2);
+            align-self: flex-start;
+        }
+        
+        .message.user {
+            background: rgba(0, 212, 255, 0.3);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .lang-switcher {
+            position: fixed;
+            top: 130px;
+            right: 30px;
+            z-index: 999;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 5%;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 80px);
+                background: rgba(10, 10, 26, 0.95);
+                flex-direction: column;
+                padding: 50px 30px;
+                transition: right 0.3s;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .chatbot-window {
+                width: 90vw;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .currency-selector, .lang-switcher {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 10px;
+            }
+        }
+        
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(0, 240, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .payment-badge {
+            padding: 8px 15px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 40px;
+            border-radius: 15px;
+            z-index: 100000;
+            font-weight: bold;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+        
+        .notification.success {
+            background: rgba(0, 240, 255, 0.95);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.8);
+        }
+        
+        .notification.error {
+            background: rgba(255, 68, 68, 0.95);
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(255, 68, 68, 0.5);
+        }
+        
+        /* Job Close Item Styles */
+        .job-close-item {
+            transition: all 0.3s ease;
+        }
+        
+        .job-close-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .job-close-item.closed {
+            background: rgba(255, 68, 68, 0.1) !important;
+            border-color: rgba(255, 68, 68, 0.3) !important;
+        }
+        
+        .job-close-item.closed .job-status {
+            color: #ff4444;
+        }
+        
+        .job-close-item button {
+            transition: all 0.3s ease;
+        }
+        
+        .job-close-item button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* PayPal Section Styles */
+        #paypal-payment .glass-card {
+            border: 2px solid rgba(0, 48, 135, 0.3);
+        }
+        
+        #paypal-payment .glass-card:hover {
+            border-color: #003087;
+            box-shadow: 0 10px 40px rgba(0, 48, 135, 0.3);
+        }
+        
+        .paypal-btn {
+            background: linear-gradient(45deg, #003087, #0070BA) !important;
+            box-shadow: 0 5px 25px rgba(0, 48, 135, 0.5) !important;
+        }
+        
+        .paypal-btn:hover {
+            box-shadow: 0 10px 40px rgba(0, 48, 135, 0.8) !important;
+        }
+        
+        /* PayPal QR Code Container */
+        .paypal-qr-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 350px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .paypal-qr-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .paypal-qr-container img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 10px;
+        }
+        
+        /* ========================================
+           MOBILE OPTIMIZATION FIXES - ADDED
+           ======================================== */
+        
+        /* 1. MOBILE PERFORMANCE FIXES */
+        @media (max-width: 768px) {
+            /* Disable heavy animations on mobile */
+            .bg-animation::before {
+                animation: none !important;
+                background: none;
+            }
+            
+            /* Remove particles on mobile */
+            .particle {
+                display: none !important;
+            }
+            
+            /* Simplify navigation blur effect */
+            nav {
+                backdrop-filter: none;
+                background: rgba(10, 10, 26, 0.98);
+            }
+            
+            /* Optimize control panel scrolling */
+            .control-panel-content {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                max-height: 80vh;
+                transform: translateZ(0);
+            }
+            
+            /* Fix currency selector position */
+            .currency-selector {
+                position: static;
+                margin: 10px auto;
+                justify-content: center;
+            }
+            
+            /* Simplify card backgrounds */
+            .glass-card {
+                backdrop-filter: blur(5px);
+            }
+            
+            /* Make tables scrollable */
+            .control-section table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Optimize form inputs */
+            input, select, textarea {
+                font-size: 16px;
+            }
+            
+            /* Reduce glow effects */
+            .logo {
+                text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            }
+            
+            h1 {
+                filter: none !important;
+            }
+            
+            /* Touch-friendly buttons */
+            button, .cta-btn, .control-btn, .login-btn {
+                min-height: 44px;
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+            
+            table td {
+                padding: 15px 12px !important;
+            }
+            
+            /* Better spacing on mobile */
+            .control-section {
+                margin-bottom: 30px;
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+            
+            /* Stack grid items on mobile */
+            .control-section > div[style*="grid"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Full width buttons */
+            .control-btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            /* Menu toggle */
+            .menu-toggle {
+                display: flex !important;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 26, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+        }
+        
+        /* 2. SMOOTH SCROLLING FIX */
+        body {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+        
+        #host-panel, #controlPanelContent {
+            overflow: visible;
+            min-height: auto;
+        }
+        
+        .control-panel-content {
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        
+        /* 3. REDUCE MOTION FOR ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* 4. FIX HORIZONTAL OVERFLOW */
+        * {
+            max-width: 100%;
+        }
+        
+        .container, .hero-content, .control-panel {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* 5. REDUCE REPAINTS */
+        .job-close-item, .toggle-switch, .control-btn {
+            contain: layout style paint;
+        }
+        
+        /* 6. PREVENT ZOOM ON DOUBLE TAP */
+        button, a {
+            touch-action: manipulation;
+        }
+        
+        .bg-animation, .particle, nav, .glass-card {
+            will-change: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-ring"></div>
+    </div>
+    
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AYAN WEB STUDIO</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+            <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+            <li><a href="#paypal-payment" onclick="closeMenu()" style="color: #0070BA;">PayPal</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            <li><a href="#terms" onclick="closeMenu()">Terms</a></li>
+            <li><a href="#host-panel" onclick="closeMenu()">Host Panel</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Currency & Language Selectors -->
+    <div class="currency-selector">
+        <select id="currencySelect" onchange="changeCurrency(this.value)">
+            <option value="INR">🇮🇳 INR (₹)</option>
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+            <option value="GBP">🇬🇧 GBP (£)</option>
+            <option value="AUD">🇦🇺 AUD (A$)</option>
+        </select>
+    </div>
+    
+    <div class="lang-switcher">
+        <select onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="bn">বাংলা</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
+    
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero-content fade-in">
+            <div class="tagline">AI Powered Premium Website Solutions</div>
+            <h1>Build Your Dream Website With AI Power</h1>
+            <p>Premium futuristic websites for brands who want to stand out</p>
+            <a href="#contact" class="cta-btn">Hire Me</a>
+            <a href="#services" class="cta-btn">View Services</a>
+            <a href="#pricing" class="cta-btn">Start Project</a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="glass-card fade-in">
+            <p>I am <strong>Rt Ayan</strong>, an AI-powered full-stack developer and creative professional specializing in modern web development, automation, AI systems, photo editing, poster design, presentation making, and professional photography. With cutting-edge technology and futuristic design principles, I transform your vision into stunning digital experiences that captivate audiences and drive results. Serving clients worldwide with international payment support.</p>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title fade-in">Services</h2>
+        <div class="services-grid">
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">🤖</span>
+                <h3>AI Website Development</h3>
+                <p>Intelligent websites powered by AI that adapt, learn, and optimize for maximum performance and user engagement.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">🎨</span>
+                <h3>3D UI Design</h3>
+                <p>Stunning three-dimensional interfaces with glassmorphism, neon accents, and interactive animations.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">⚡</span>
+                <h3>Full Stack Development</h3>
+                <p>Complete end-to-end website solutions from design to deployment, databases to dashboards.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">🔄</span>
+                <h3>Automation Integration</h3>
+                <p>Smart automation for forms, payments, chatbots, analytics, and workflows that save time.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">📸</span>
+                <h3>Photo Editing</h3>
+                <p>Professional photo editing, retouching, color correction, and image enhancement services.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">🖼️</span>
+                <h3>Poster Design</h3>
+                <p>Eye-catching poster designs for events, promotions, brands, and social media campaigns.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">📊</span>
+                <h3>Presentation Making</h3>
+                <p>Professional presentations, pitch decks, and slide designs for business and creative projects.</p>
+            </div>
+            <div class="glass-card service-card fade-in">
+                <span class="service-icon">📷</span>
+                <span class="service-badge">India Only</span>
+                <h3>Photo Shooting</h3>
+                <p>Professional photography services available in select Indian cities. Contact for booking and availability.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title fade-in">Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item glass-card fade-in" style="background: linear-gradient(135deg, rgba(0, 100, 255, 0.3), rgba(0, 200, 255, 0.3));">
+                <div class="portfolio-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Modern shopping experience with AI recommendations</p>
+                </div>
+            </div>
+            <div class="portfolio-item glass-card fade-in" style="background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(255, 100, 200, 0.3));">
+                <div class="portfolio-content">
+                    <h3>Business Dashboard</h3>
+                    <p>Real-time analytics and data visualization</p>
+                </div>
+            </div>
+            <div class="portfolio-item glass-card fade-in" style="background: linear-gradient(135deg, rgba(0, 255, 150, 0.3), rgba(100, 255, 200, 0.3));">
+                <div class="portfolio-content">
+                    <h3>Portfolio Website</h3>
+                    <p>Creative showcase with 3D elements</p>
+                </div>
+            </div>
+            <div class="portfolio-item glass-card fade-in" style="background: linear-gradient(135deg, rgba(255, 150, 0, 0.3), rgba(255, 200, 100, 0.3));">
+                <div class="portfolio-content">
+                    <h3>Brand Identity Design</h3>
+                    <p>Complete branding package with posters and presentations</p>
+                </div>
+            </div>
+            <div class="portfolio-item glass-card fade-in" style="background: linear-gradient(135deg, rgba(150, 0, 255, 0.3), rgba(200, 100, 255, 0.3));">
+                <div class="portfolio-content">
+                    <h3>Professional Photography</h3>
+                    <p>Corporate events and product photography</p>
+                </div>
+            </div>
+            <div class="portfolio-item glass-card fade-in" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(100, 200, 255, 0.3));">
+                <div class="portfolio-content">
+                    <h3>Marketing Campaigns</h3>
+                    <p>Social media posters and promotional materials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title fade-in">Pricing Plans</h2>
+        
+        <!-- Website Design Pricing -->
+        <h3 style="color: var(--primary); text-align: center; margin: 50px 0 30px; font-size: 32px; font-family: 'Orbitron', sans-serif;">
+            🌐 Website Design & Development
+        </h3>
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card fade-in">
+                <h3>Silver</h3>
+                <div class="price" data-inr="10000" data-usd="120" data-eur="110" data-gbp="95" data-aud="180">₹10,000</div>
+                <ul class="pricing-features">
+                    <li>Basic Website Design</li>
+                    <li>Up to 5 Pages</li>
+                    <li>Responsive Layout</li>
+                    <li>Contact Form</li>
+                    <li>SEO Optimization</li>
+                    <li>1 Month Support</li>
+                    <li>Free Domain Setup</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Get Started</a>
+                <div class="payment-methods">
+                    <span class="payment-badge">UPI</span>
+                    <span class="payment-badge">Razorpay</span>
+                    <span class="payment-badge">Stripe</span>
+                </div>
+            </div>
+            
+            <div class="glass-card pricing-card featured fade-in">
+                <h3>Gold</h3>
+                <div class="price" data-inr="25000" data-usd="300" data-eur="275" data-gbp="240" data-aud="450">₹25,000</div>
+                <ul class="pricing-features">
+                    <li>3D UI Design</li>
+                    <li>Up to 10 Pages</li>
+                    <li>Client Dashboard</li>
+                    <li>Payment Integration</li>
+                    <li>AI Chatbot</li>
+                    <li>Analytics Dashboard</li>
+                    <li>3 Months Support</li>
+                    <li>Free Hosting (1 Year)</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Most Popular</a>
+                <div class="payment-methods">
+                    <span class="payment-badge">All Methods</span>
+                    <span class="payment-badge">PayPal</span>
+                </div>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Diamond</h3>
+                <div class="price" data-inr="50000" data-usd="600" data-eur="550" data-gbp="480" data-aud="900">₹50,000</div>
+                <ul class="pricing-features">
+                    <li>Premium 3D Design</li>
+                    <li>Unlimited Pages</li>
+                    <li>Custom Features</li>
+                    <li>Admin + Client Panels</li>
+                    <li>Full Automation</li>
+                    <li>AI Integration</li>
+                    <li>6 Months Support</li>
+                    <li>Free Hosting (2 Years)</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Premium Plan</a>
+                <div class="payment-methods">
+                    <span class="payment-badge">All Payment Methods</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Editing Pricing -->
+        <h3 style="color: var(--primary); text-align: center; margin: 80px 0 30px; font-size: 32px; font-family: 'Orbitron', sans-serif;">
+            🎨 Photo Editing Services
+        </h3>
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card fade-in">
+                <h3>Basic Editing</h3>
+                <div class="price" data-inr="500" data-usd="6" data-eur="5.5" data-gbp="4.75" data-aud="9">₹500</div>
+                <p style="color: #aaa; margin: 10px 0;">Per Image</p>
+                <ul class="pricing-features">
+                    <li>Color Correction</li>
+                    <li>Brightness & Contrast</li>
+                    <li>Basic Retouching</li>
+                    <li>Crop & Resize</li>
+                    <li>Format Conversion</li>
+                    <li>24 Hour Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Professional Editing</h3>
+                <div class="price" data-inr="1500" data-usd="18" data-eur="16.5" data-gbp="14.25" data-aud="27">₹1,500</div>
+                <p style="color: #aaa; margin: 10px 0;">Per Image</p>
+                <ul class="pricing-features">
+                    <li>Advanced Retouching</li>
+                    <li>Skin Smoothing</li>
+                    <li>Background Removal</li>
+                    <li>Object Removal</li>
+                    <li>Color Grading</li>
+                    <li>Shadow & Light Adjustment</li>
+                    <li>12 Hour Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Bulk Editing</h3>
+                <div class="price" data-inr="10000" data-usd="120" data-eur="110" data-gbp="95" data-aud="180">₹10,000</div>
+                <p style="color: #aaa; margin: 10px 0;">25+ Images</p>
+                <ul class="pricing-features">
+                    <li>Consistent Editing Style</li>
+                    <li>Batch Processing</li>
+                    <li>All Professional Features</li>
+                    <li>Priority Support</li>
+                    <li>2-3 Day Delivery</li>
+                    <li>Free Revisions</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+        </div>
+
+        <!-- Professional Product Photography -->
+        <h3 style="color: var(--primary); text-align: center; margin: 80px 0 30px; font-size: 32px; font-family: 'Orbitron', sans-serif;">
+            📦 Professional Product Photography with AI
+        </h3>
+        <p style="text-align: center; color: #aaa; font-size: 16px; margin-bottom: 30px;">
+            High-quality product shoots enhanced with AI technology for stunning results
+        </p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+            <div class="glass-card pricing-card featured fade-in">
+                <h3>Gold Package</h3>
+                <div class="price" data-inr="6000" data-usd="72" data-eur="66" data-gbp="57" data-aud="108">₹6,000</div>
+                <p style="color: var(--primary); margin: 10px 0; font-weight: bold;">Complete Product Shoot</p>
+                <ul class="pricing-features">
+                    <li>Professional Product Photography</li>
+                    <li>AI-Enhanced Background Creation</li>
+                    <li>Multiple Angle Shots (5-8 angles)</li>
+                    <li>Professional Lighting Setup</li>
+                    <li>AI-Powered Color Correction</li>
+                    <li>Background Removal & White BG</li>
+                    <li>AI Lifestyle Scene Generation</li>
+                    <li>15-20 Final Edited Images</li>
+                    <li>All Source Files Included</li>
+                    <li>3-4 Day Delivery</li>
+                    <li>Perfect for E-commerce & Marketing</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Book Now</a>
+                <div class="payment-methods">
+                    <span class="payment-badge">UPI</span>
+                    <span class="payment-badge">Razorpay</span>
+                    <span class="payment-badge">All Methods</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; margin: 40px auto; padding: 30px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 15px;">
+            <h4 style="color: var(--primary); margin-bottom: 20px; text-align: center;">🤖 AI-Powered Features Included:</h4>
+            <div style="color: #ddd; line-height: 1.8;">
+                <p style="margin-bottom: 15px;">✓ AI Background Generation - Create stunning lifestyle backgrounds without physical setup</p>
+                <p style="margin-bottom: 15px;">✓ AI Color Enhancement - Perfect color grading automatically applied</p>
+                <p style="margin-bottom: 15px;">✓ AI Shadow & Reflection - Realistic shadows and reflections added to products</p>
+                <p style="margin-bottom: 15px;">✓ AI Upscaling - Images enhanced to ultra-high resolution</p>
+                <p style="margin-bottom: 15px;">✓ Smart Object Removal - Remove unwanted elements seamlessly</p>
+            </div>
+        </div>
+
+        <!-- Poster Design Pricing -->
+        <h3 style="color: var(--primary); text-align: center; margin: 80px 0 30px; font-size: 32px; font-family: 'Orbitron', sans-serif;">
+            🖼️ Poster & Graphics Design
+        </h3>
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card fade-in">
+                <h3>Single Poster</h3>
+                <div class="price" data-inr="1500" data-usd="18" data-eur="16.5" data-gbp="14.25" data-aud="27">₹1,500</div>
+                <ul class="pricing-features">
+                    <li>Custom Design</li>
+                    <li>2 Revisions</li>
+                    <li>Print Ready Quality</li>
+                    <li>Social Media Format</li>
+                    <li>Source Files Included</li>
+                    <li>24-48 Hour Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>5 Poster Bundle</h3>
+                <div class="price" data-inr="6000" data-usd="72" data-eur="66" data-gbp="57" data-aud="108">₹6,000</div>
+                <ul class="pricing-features">
+                    <li>5 Custom Designs</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Multiple Formats</li>
+                    <li>Social Media Optimized</li>
+                    <li>Brand Consistency</li>
+                    <li>All Source Files</li>
+                    <li>3-5 Day Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Monthly Package</h3>
+                <div class="price" data-inr="15000" data-usd="180" data-eur="165" data-gbp="142.5" data-aud="270">₹15,000</div>
+                <ul class="pricing-features">
+                    <li>15 Designs per Month</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Priority Support</li>
+                    <li>All Social Media Formats</li>
+                    <li>Brand Kit Included</li>
+                    <li>Fast 24h Turnaround</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Subscribe</a>
+            </div>
+        </div>
+
+        <!-- Presentation Design Pricing -->
+        <h3 style="color: var(--primary); text-align: center; margin: 80px 0 30px; font-size: 32px; font-family: 'Orbitron', sans-serif;">
+            📊 Presentation & Pitch Deck Design
+        </h3>
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card fade-in">
+                <h3>Basic Presentation</h3>
+                <div class="price" data-inr="3000" data-usd="36" data-eur="33" data-gbp="28.5" data-aud="54">₹3,000</div>
+                <p style="color: #aaa; margin: 10px 0;">Up to 10 Slides</p>
+                <ul class="pricing-features">
+                    <li>Professional Design</li>
+                    <li>Custom Template</li>
+                    <li>Charts & Graphs</li>
+                    <li>2 Revisions</li>
+                    <li>PowerPoint Format</li>
+                    <li>2-3 Day Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Business Presentation</h3>
+                <div class="price" data-inr="7000" data-usd="84" data-eur="77" data-gbp="66.5" data-aud="126">₹7,000</div>
+                <p style="color: #aaa; margin: 10px 0;">Up to 25 Slides</p>
+                <ul class="pricing-features">
+                    <li>Premium Design</li>
+                    <li>Custom Animations</li>
+                    <li>Infographics</li>
+                    <li>Data Visualization</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Multiple Formats</li>
+                    <li>3-5 Day Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Pitch Deck</h3>
+                <div class="price" data-inr="15000" data-usd="180" data-eur="165" data-gbp="142.5" data-aud="270">₹15,000</div>
+                <p style="color: #aaa; margin: 10px 0;">Investor Ready</p>
+                <ul class="pricing-features">
+                    <li>Investor-Grade Design</li>
+                    <li>Storytelling Flow</li>
+                    <li>Financial Charts</li>
+                    <li>Premium Animations</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Consultation Included</li>
+                    <li>5-7 Day Delivery</li>
+                </ul>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+        </div>
+
+        <!-- Photo Shooting Pricing -->
+        <h3 style="color: var(--primary); text-align: center; margin: 80px 0 30px; font-size: 32px; font-family: 'Orbitron', sans-serif;">
+            📷 Professional Photo Shooting Services
+        </h3>
+        <p style="text-align: center; color: #ff6b00; font-size: 18px; margin-bottom: 30px; font-weight: bold;">
+            ⚠️ Available Only in India (Select Cities) | Contact for Booking
+        </p>
+        
+        <div class="pricing-grid">
+            <div class="glass-card pricing-card fade-in">
+                <h3>Silver Package</h3>
+                <div class="price">₹11,000</div>
+                <p style="color: var(--primary); margin: 10px 0; font-weight: bold;">2-3 Hours Session</p>
+                <ul class="pricing-features">
+                    <li>30-40 Edited Photos</li>
+                    <li>Basic Portrait/Event Photography</li>
+                    <li>Professional Camera Equipment</li>
+                    <li>Basic Lighting Setup</li>
+                    <li>Online Gallery Delivery</li>
+                    <li>11 Days Delivery</li>
+                </ul>
+                <p style="color: #ff6b00; margin-top: 15px; font-size: 14px; font-weight: bold;">
+                    📍 Available in: Kolkata & nearby areas
+                </p>
+                <a href="https://wa.me/919832645792?text=Hi ! I'm interested in Silver Photo Shooting Package (₹11,000)" target="_blank" class="cta-btn">
+                    💬 WhatsApp Only
+                </a>
+            </div>
+            
+            <div class="glass-card pricing-card featured fade-in">
+                <h3>Gold Package</h3>
+                <div class="price">₹31,000</div>
+                <p style="color: var(--primary); margin: 10px 0; font-weight: bold;">4-6 Hours Session</p>
+                <ul class="pricing-features">
+                    <li>100-150 Edited Photos</li>
+                    <li>Professional Event/Product Photography</li>
+                    <li>Premium Equipment</li>
+                    <li>Advanced Lighting Setup</li>
+                    <li>2 Locations Covered</li>
+                    <li>Priority Editing</li>
+                    <li>7 Days Delivery</li>
+                </ul>
+                <p style="color: #ff6b00; margin-top: 15px; font-size: 14px; font-weight: bold;">
+                    📍 Available in major cities
+                </p>
+                <a href="https://wa.me/919832645792?text=Hi ! I'm interested in Gold Photo Shooting Package (₹31,000)" target="_blank" class="cta-btn">
+                    💬 WhatsApp Only
+                </a>
+            </div>
+            
+            <div class="glass-card pricing-card fade-in">
+                <h3>Diamond Package</h3>
+                <div class="price">₹75,000</div>
+                <p style="color: var(--primary); margin: 10px 0; font-weight: bold;">Full Day Coverage</p>
+                <ul class="pricing-features">
+                    <li>150+ Edited Photos</li>
+                    <li>Premium Wedding/Corporate Photography</li>
+                    <li>Cinema-Grade Equipment</li>
+                    <li>Professional Lighting Team</li>
+                    <li>Multiple Locations</li>
+                    <li>Same Day Preview</li>
+                    <li>5 Days Full Delivery</li>
+                    <li>Premium Albums Available</li>
+                </ul>
+                <p style="color: #ff6b00; margin-top: 15px; font-size: 14px; font-weight: bold;">
+                    📍 Pan India (Contact for availability)
+                </p>
+                <a href="https://wa.me/919832645792?text=Hi ! I'm interested in Diamond Photo Shooting Package (₹75,000)" target="_blank" class="cta-btn">
+                    💬 WhatsApp Only
+                </a>
+            </div>
+        </div>
+
+        <!-- Photo Shooting Terms & Conditions -->
+        <div style="max-width: 1000px; margin: 60px auto; padding: 40px; background: rgba(255, 107, 0, 0.1); border: 2px solid rgba(255, 107, 0, 0.5); border-radius: 20px;">
+            <h3 style="color: #ff6b00; text-align: center; margin-bottom: 30px; font-size: 28px; font-family: 'Orbitron', sans-serif;">
+                📸 Photo Shooting Terms & Conditions
+            </h3>
+            
+            <div style="color: #ddd; line-height: 1.8; font-size: 16px;">
+                <p style="margin-bottom: 20px; font-weight: bold; color: var(--primary);">
+                    ⚠️ IMPORTANT: All expenses must be covered by the client/booking owner:
+                </p>
+                
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b00;">✓</span>
+                        <strong>Travel Expenses:</strong> All transportation costs including flights, trains, taxis, or personal vehicle fuel charges
+                    </li>
+                    <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b00;">✓</span>
+                        <strong>Accommodation:</strong> Hotel/lodging booking and payment (if overnight stay required)
+                    </li>
+                    <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b00;">✓</span>
+                        <strong>Food & Meals:</strong> Breakfast, lunch, dinner, and refreshments during the shoot
+                    </li>
+                    <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b00;">✓</span>
+                        <strong>Equipment Insurance:</strong> Any additional insurance or equipment protection costs
+                    </li>
+                    <li style="padding: 12px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #ff6b00;">✓</span>
+                        <strong>Assistant Costs:</strong> If additional crew members are required, their expenses are also client's responsibility
+                    </li>
+                </ul>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(0, 240, 255, 0.1); border-left: 4px solid var(--primary); border-radius: 10px;">
+                    <p style="margin-bottom: 15px; font-weight: bold; color: var(--primary);">💰 Payment Terms:</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">• 50% advance payment to confirm booking</li>
+                        <li style="padding: 8px 0;">• 50% balance payment on the day of shoot (before starting)</li>
+                        <li style="padding: 8px 0;">• All expenses to be paid in advance or reimbursed on the same day</li>
+                        <li style="padding: 8px 0;">• <strong style="color: #ff6b00;">PAYMENT METHOD: Cash or UPI only (No online payment gateway)</strong></li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(255, 107, 0, 0.1); border-left: 4px solid #ff6b00; border-radius: 10px;">
+                    <p style="margin-bottom: 15px; font-weight: bold; color: #ff6b00;">💬 Price Negotiation & Booking:</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">• Final price is negotiable based on requirements and location</li>
+                        <li style="padding: 8px 0;">• <strong>Contact via WhatsApp ONLY: +91 9832645792</strong></li>
+                        <li style="padding: 8px 0;">• Only chat available - discuss your requirements in detail</li>
+                        <li style="padding: 8px 0;">• Booking confirmation only after advance payment received</li>
+                        <li style="padding: 8px 0;">• Minimum 7 days advance booking required</li>
+                        <li style="padding: 8px 0;">• Cancellation: 50% refund if cancelled 5+ days before shoot</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 10px; text-align: center;">
+                    <p style="font-size: 18px; color: var(--primary); margin-bottom: 15px;">
+                        📍 <strong>Coverage Areas:</strong>
+                    </p>
+                    <p style="color: #ddd;">
+                        Primary: Kolkata, West Bengal<br>
+                        Extended: Mumbai, Delhi, Bangalore, Hyderabad (subject to availability)<br>
+                        <span style="color: #aaa; font-size: 14px;">Other cities: Contact for feasibility and pricing</span>
+                    </p>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="https://wa.me/919832645792?text=Hi ! I want to discuss Photo Shooting requirements and pricing" 
+                       target="_blank" 
+                       class="cta-btn" 
+                       style="font-size: 18px; padding: 20px 60px;">
+                        💬 Chat on WhatsApp: +91 9832645792
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- General Payment Methods -->
+        <div style="text-align: center; margin-top: 80px;">
+            <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 28px;">Accepted Payment Methods</h3>
+            <p style="color: #aaa; margin-bottom: 20px;">(Except Photo Shooting - Cash/UPI Only)</p>
+            <div class="payment-methods" style="justify-content: center;">
+                <span class="payment-badge">💳 UPI</span>
+                <span class="payment-badge">💳 Razorpay</span>
+                <span class="payment-badge">💳 Stripe</span>
+                <span class="payment-badge">💳 PayPal</span>
+                <span class="payment-badge">💳 Google Pay</span>
+                <span class="payment-badge">💳 Bank Transfer</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PayPal Payment Section -->
+    <section id="paypal-payment">
+        <h2 class="section-title fade-in">PayPal Payment</h2>
+        <div class="glass-card fade-in" style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <div style="margin-bottom: 30px;">
+                <span style="font-size: 60px;">💳</span>
+            </div>
+            <h3 style="color: var(--primary); font-family: 'Orbitron', sans-serif; margin-bottom: 15px;">
+                Pay via PayPal
+            </h3>
+            <p style="color: #aaa; margin-bottom: 25px; line-height: 1.8;">
+                International clients can pay securely via PayPal.<br>
+                Scan the QR code below or click the button to pay.
+            </p>
+            
+            <!-- PayPal QR Code -->
+            <div class="paypal-qr-container">
+                <img src="paypal-qr-code.jpeg" alt="PayPal QR Code - Priyanshu Sarkar">
+                <p style="color: #003087; margin-top: 15px; font-weight: 600; font-size: 16px;">
+                    Priyanshu Sarkar
+                </p>
+                <p style="color: #666; font-size: 14px;">Scan to pay with PayPal</p>
+            </div>
+            
+            <!-- PayPal.me Link Button -->
+            <a href="https://paypal.me/PriyanshuSarkar" target="_blank" class="cta-btn paypal-btn">
+                🌐 Pay with PayPal.me
+            </a>
+            
+            <!-- PayPal Email -->
+            <div style="margin-top: 25px; padding: 20px; background: rgba(0, 48, 135, 0.1); border: 1px solid rgba(0, 112, 186, 0.3); border-radius: 15px;">
+                <p style="color: #aaa; font-size: 14px; margin-bottom: 10px;">PayPal Email:</p>
+                <p style="color: var(--primary); font-size: 18px; font-weight: 600;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5b5b7acbca4abb6adb0b6a4b7aea4b7f7f5f4f285a2a8a4aca9eba6aaa8">[email&#160;protected]</a></p>
+            </div>
+            
+            <div style="margin-top: 20px; color: #888; font-size: 13px;">
+                <p>🔒 Secure Payment | 🌍 International Accepted | ⚡ Instant Transfer</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title fade-in">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="glass-card contact-item fade-in">
+                <span class="contact-icon">📱</span>
+                <h3>Phone</h3>
+                <a href="tel:9832645792">+91 9832645792</a>
+            </div>
+            <div class="glass-card contact-item fade-in">
+                <span class="contact-icon">💬</span>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/qr/7XQWYGCNBRNYM1" target="_blank">Chat Now</a>
+            </div>
+            <div class="glass-card contact-item fade-in">
+                <span class="contact-icon">💳</span>
+                <h3>UPI Payment (India)</h3>
+                <a href="upi://pay?pa=9832645792@kotak811">9832645792@kotak811</a>
+            </div>
+            <div class="glass-card contact-item fade-in">
+                <span class="contact-icon">🌍</span>
+                <h3>International Clients</h3>
+                <a href="#contact">Stripe, PayPal Available</a>
+            </div>
+            <div class="glass-card contact-item fade-in">
+                <span class="contact-icon" style="color: #003087;">💳</span>
+                <h3 style="color: #0070BA;">PayPal</h3>
+                <a href="#paypal-payment">Scan QR or Pay Online</a>
+                <p style="color: #888; font-size: 12px; margin-top: 5px;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3343415a4a525d405b464052415852410103020473545e525a5f1d505c5e">[email&#160;protected]</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Terms & Conditions Section -->
+    <section id="terms">
+        <h2 class="section-title fade-in">Terms & Conditions</h2>
+        <div class="terms-grid">
+            <div class="glass-card terms-card fade-in">
+                <h3>🔒 Privacy Policy</h3>
+                <ul>
+                    <li>Your data is secure and confidential</li>
+                    <li>No third-party sharing without consent</li>
+                    <li>GDPR compliant for international clients</li>
+                    <li>Secure payment processing</li>
+                </ul>
+            </div>
+            
+            <div class="glass-card terms-card fade-in">
+                <h3>💰 Refund Policy</h3>
+                <ul>
+                    <li>50% advance, 50% on completion</li>
+                    <li>Refund within 7 days if not started</li>
+                    <li>No refund after project approval</li>
+                    <li>Revisions included as per package</li>
+                </ul>
+            </div>
+            
+            <div class="glass-card terms-card fade-in">
+                <h3>📸 Photography Terms</h3>
+                <ul>
+                    <li>Available only in select Indian cities</li>
+                    <li>Payment via contact/cash only</li>
+                    <li>Booking requires advance confirmation</li>
+                    <li>Travel charges may apply</li>
+                    <li>Final photos delivered within 7 days</li>
+                </ul>
+            </div>
+            
+            <div class="glass-card terms-card fade-in">
+                <h3>🌐 International Terms</h3>
+                <ul>
+                    <li>Payments via Stripe/PayPal accepted</li>
+                    <li>Currency conversion at current rates</li>
+                    <li>Project timeline based on timezone</li>
+                    <li>English communication standard</li>
+                </ul>
+            </div>
+            
+            <div class="glass-card terms-card fade-in">
+                <h3>⚖️ General Terms</h3>
+                <ul>
+                    <li>Project ownership after full payment</li>
+                    <li>Source files provided on request</li>
+                    <li>Maintenance packages available</li>
+                    <li>Copyright remains with client</li>
+                </ul>
+            </div>
+            
+            <div class="glass-card terms-card fade-in">
+                <h3>🚫 Cancellation Policy</h3>
+                <ul>
+                    <li>Cancel before start for full refund</li>
+                    <li>50% refund if work in progress</li>
+                    <li>No refund after final delivery</li>
+                    <li>Reschedule allowed once</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Host Control Panel Section - FIXED -->
+    <section id="host-panel">
+        <h2 class="section-title fade-in">Host Control Panel</h2>
+        <div class="glass-card control-panel fade-in">
+            <!-- Login Form -->
+            <div id="loginForm">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 30px;">Owner Access</h3>
+                <form id="hostLoginForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="hostPassword" placeholder="Enter owner password" required>
+                    </div>
+                    <button type="button" class="login-btn" onclick="handleHostLogin()">Access Control Panel</button>
+                    <p style="text-align: center; color: #aaa; margin-top: 15px; font-size: 14px;">
+                        🔒 Owner only access
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Control Panel Content (Hidden by default) -->
+            <div id="controlPanelContent" class="control-panel-content">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 30px;">
+                    ✅ Welcome Owner - Full Access Granted!
+                </h3>
+                
+                <!-- Profit Dashboard -->
+                <div class="control-section">
+                    <h3>💰 Profit Dashboard</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                        <div style="padding: 20px; background: rgba(0, 240, 255, 0.1); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 14px; color: #aaa;">Today's Profit</div>
+                            <div style="font-size: 28px; color: var(--primary); font-weight: bold; margin-top: 10px;">₹5,400</div>
+                        </div>
+                        <div style="padding: 20px; background: rgba(0, 240, 255, 0.1); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 14px; color: #aaa;">This Month</div>
+                            <div style="font-size: 28px; color: var(--primary); font-weight: bold; margin-top: 10px;">₹67,200</div>
+                        </div>
+                        <div style="padding: 20px; background: rgba(0, 240, 255, 0.1); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 14px; color: #aaa;">Total Profit</div>
+                            <div style="font-size: 28px; color: var(--primary); font-weight: bold; margin-top: 10px;">₹2,34,800</div>
+                        </div>
+                        <div style="padding: 20px; background: rgba(0, 240, 255, 0.1); border-radius: 15px; text-align: center;">
+                            <div style="font-size: 14px; color: #aaa;">Pending Payments</div>
+                            <div style="font-size: 28px; color: #ff6b00; font-weight: bold; margin-top: 10px;">₹12,000</div>
+                        </div>
+                    </div>
+                    <button class="control-btn" onclick="showNotification('Opening detailed profit analytics...', 'success')">View Detailed Report</button>
+                </div>
+                
+                <!-- Client Records -->
+                <div class="control-section">
+                    <h3>📋 Client Records & Orders</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px;">
+                            <thead>
+                                <tr style="background: rgba(0, 240, 255, 0.1);">
+                                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 240, 255, 0.3);">Client Name</th>
+                                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 240, 255, 0.3);">Service</th>
+                                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 240, 255, 0.3);">Amount</th>
+                                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 240, 255, 0.3);">Status</th>
+                                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 240, 255, 0.3);">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">Rahul Kumar</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">Website Gold</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">₹25,000</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"><span style="color: #00ff00;">✓ Paid</span></td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"><button onclick="showNotification('Viewing client details...', 'success')" style="padding: 5px 15px; background: var(--primary); border: none; border-radius: 5px; color: #000; cursor: pointer;">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">Priya Singh</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">Photo Shoot Gold</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">₹31,000</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"><span style="color: #ff6b00;">⏳ Pending</span></td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"><button onclick="showNotification('Viewing client details...', 'success')" style="padding: 5px 15px; background: var(--primary); border: none; border-radius: 5px; color: #000; cursor: pointer;">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">Amit Patel</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">Poster Design</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">₹6,000</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"><span style="color: #00ff00;">✓ Paid</span></td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"><button onclick="showNotification('Viewing client details...', 'success')" style="padding: 5px 15px; background: var(--primary); border: none; border-radius: 5px; color: #000; cursor: pointer;">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="control-btn" onclick="showNotification('Add new client order', 'success')">+ Add New Order</button>
+                </div>
+                
+                <!-- Job Management -->
+                <div class="control-section">
+                    <h3>💼 Job Management</h3>
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" id="newJobTitle" placeholder="Job Title (e.g., Junior Web Developer)" style="width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 8px; color: #fff; margin-bottom: 10px;">
+                        <textarea id="newJobDesc" placeholder="Job Description..." style="width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 8px; color: #fff; margin-bottom: 10px; min-height: 80px;"></textarea>
+                        <button class="control-btn" onclick="addNewJob()">+ Post New Job</button>
+                    </div>
+                    
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Active Jobs:</h4>
+                    <div id="jobsList">
+                        <div class="job-item" style="padding: 15px; background: rgba(0, 0, 0, 0.3); border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: bold; color: var(--primary);">Website Developer</div>
+                                <div style="font-size: 14px; color: #aaa; margin-top: 5px;">Full-time position for React developer</div>
+                                <div style="font-size: 12px; color: #888; margin-top: 5px;">Posted: 2 days ago | Applications: 12</div>
+                            </div>
+                            <button onclick="closeJob(this)" style="padding: 8px 20px; background: #ff4444; border: none; border-radius: 8px; color: #fff; cursor: pointer; font-weight: bold;">Close Job</button>
+                        </div>
+                        
+                        <div class="job-item" style="padding: 15px; background: rgba(0, 0, 0, 0.3); border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: bold; color: var(--primary);">Graphic Designer</div>
+                                <div style="font-size: 14px; color: #aaa; margin-top: 5px;">Expert in Photoshop and Illustrator</div>
+                                <div style="font-size: 12px; color: #888; margin-top: 5px;">Posted: 5 days ago | Applications: 8</div>
+                            </div>
+                            <button onclick="closeJob(this)" style="padding: 8px 20px; background: #ff4444; border: none; border-radius: 8px; color: #fff; cursor: pointer; font-weight: bold;">Close Job</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ALL JOBS CLOSE/OPEN MANAGEMENT -->
+                <div class="control-section">
+                    <h3>🚫 Close/Open All Jobs</h3>
+                    <p style="color: #aaa; margin-bottom: 15px; font-size: 14px;">
+                        Close individual jobs to stop receiving orders. Closed jobs will show "Not Available" on the website.
+                    </p>
+                    
+                    <!-- Website Development Jobs -->
+                    <h4 style="color: var(--primary); margin: 20px 0 10px; font-size: 16px;">🌐 Website Development</h4>
+                    <div id="websiteJobs">
+                        <div class="job-close-item" data-job="website-silver" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Silver Package</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'website-silver', 'Silver Package')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="website-gold" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Gold Package</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'website-gold', 'Gold Package')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="website-diamond" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Diamond Package</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'website-diamond', 'Diamond Package')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo Editing Jobs -->
+                    <h4 style="color: var(--primary); margin: 20px 0 10px; font-size: 16px;">🎨 Photo Editing</h4>
+                    <div id="editingJobs">
+                        <div class="job-close-item" data-job="editing-basic" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Basic Editing</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'editing-basic', 'Basic Editing')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="editing-pro" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Professional Editing</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'editing-pro', 'Professional Editing')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="editing-bulk" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Bulk Editing</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'editing-bulk', 'Bulk Editing')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Photography -->
+                    <h4 style="color: var(--primary); margin: 20px 0 10px; font-size: 16px;">📦 Product Photography</h4>
+                    <div id="productJobs">
+                        <div class="job-close-item" data-job="product-gold" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Gold Package (₹6,000)</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'product-gold', 'Product Photography Gold')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Poster Design Jobs -->
+                    <h4 style="color: var(--primary); margin: 20px 0 10px; font-size: 16px;">🖼️ Poster Design</h4>
+                    <div id="posterJobs">
+                        <div class="job-close-item" data-job="poster-single" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Single Poster</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'poster-single', 'Single Poster')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="poster-bundle" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">5 Poster Bundle</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'poster-bundle', '5 Poster Bundle')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="poster-monthly" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Monthly Package</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'poster-monthly', 'Monthly Package')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Presentation Jobs -->
+                    <h4 style="color: var(--primary); margin: 20px 0 10px; font-size: 16px;">📊 Presentation Design</h4>
+                    <div id="presentationJobs">
+                        <div class="job-close-item" data-job="ppt-basic" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Basic Presentation</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'ppt-basic', 'Basic Presentation')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="ppt-business" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Business Presentation</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'ppt-business', 'Business Presentation')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="ppt-pitch" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Pitch Deck</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'ppt-pitch', 'Pitch Deck')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo Shooting Jobs -->
+                    <h4 style="color: var(--primary); margin: 20px 0 10px; font-size: 16px;">📷 Photo Shooting (India Only)</h4>
+                    <div id="shootingJobs">
+                        <div class="job-close-item" data-job="shooting-silver" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Silver Package (₹11,000)</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'shooting-silver', 'Photo Shooting Silver')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="shooting-gold" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Gold Package (₹31,000)</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'shooting-gold', 'Photo Shooting Gold')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                        <div class="job-close-item" data-job="shooting-diamond" style="padding: 12px 15px; background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span style="font-weight: 600;">Diamond Package (₹75,000)</span>
+                                <span style="color: #00ff00; font-size: 12px; margin-left: 10px;">● OPEN</span>
+                            </div>
+                            <button onclick="toggleJobClose(this, 'shooting-diamond', 'Photo Shooting Diamond')" style="padding: 6px 15px; background: #ff4444; border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold;">CLOSE</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Bulk Actions -->
+                    <div style="margin-top: 25px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">⚡ Bulk Actions</h4>
+                        <button class="control-btn" style="margin-right: 10px; margin-bottom: 10px;" onclick="closeAllJobs()">🚫 Close All Jobs</button>
+                        <button class="control-btn" style="margin-bottom: 10px;" onclick="openAllJobs()">✅ Open All Jobs</button>
+                    </div>
+                    
+                    <!-- Closed Jobs Counter -->
+                    <div style="margin-top: 15px; padding: 15px; background: rgba(0, 240, 255, 0.1); border-radius: 10px; text-align: center;">
+                        <span style="color: #aaa;">Jobs Status: </span>
+                        <span id="openJobsCount" style="color: #00ff00; font-weight: bold;">16 OPEN</span>
+                        <span style="color: #aaa;"> | </span>
+                        <span id="closedJobsCount" style="color: #ff4444; font-weight: bold;">0 CLOSED</span>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>💼 Job Availability Management (Quick Toggle)</h3>
+                    <p style="color: #aaa; margin-bottom: 15px; font-size: 14px;">
+                        Toggle services on/off when you're not available
+                    </p>
+                    <div class="toggle-switch">
+                        <span>🌐 Website Development</span>
+                        <div class="switch active" onclick="toggleJobAvailability(this, 'Website Development')"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>🎨 Photo Editing</span>
+                        <div class="switch active" onclick="toggleJobAvailability(this, 'Photo Editing')"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>🖼️ Poster Design</span>
+                        <div class="switch active" onclick="toggleJobAvailability(this, 'Poster Design')"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>📊 Presentation Making</span>
+                        <div class="switch active" onclick="toggleJobAvailability(this, 'Presentation Making')"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>📷 Photo Shooting</span>
+                        <div class="switch active" onclick="toggleJobAvailability(this, 'Photo Shooting')"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>📦 Product Photography</span>
+                        <div class="switch active" onclick="toggleJobAvailability(this, 'Product Photography')"></div>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>🎨 Theme Settings</h3>
+                    <div class="form-group">
+                        <label>Primary Color</label>
+                        <input type="color" value="#00f0ff" onchange="updateThemeColor(this.value)">
+                    </div>
+                    <div class="toggle-switch">
+                        <span>Dark Mode</span>
+                        <div class="switch active" onclick="toggleSwitch(this)"></div>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>💳 Payment Methods</h3>
+                    <div class="toggle-switch">
+                        <span>UPI Payments</span>
+                        <div class="switch active" onclick="toggleSwitch(this)"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>Stripe</span>
+                        <div class="switch active" onclick="toggleSwitch(this)"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span style="color: #0070BA;">💳 PayPal</span>
+                        <div class="switch active" onclick="toggleSwitch(this)"></div>
+                    </div>
+                    <div class="toggle-switch">
+                        <span>Razorpay</span>
+                        <div class="switch active" onclick="toggleSwitch(this)"></div>
+                    </div>
+                </div>
+                
+                <!-- PayPal Settings Section -->
+                <div class="control-section" style="border: 2px solid #003087;">
+                    <h3 style="color: #003087;">💳 PayPal Settings</h3>
+                    
+                    <!-- PayPal QR Code Preview -->
+                    <div style="background: #ffffff; padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: center;">
+                        <p style="color: #003087; font-weight: 600; margin-bottom: 15px;">Current PayPal QR Code</p>
+                        <img src="paypal-qr-code.jpeg" alt="PayPal QR" style="width: 150px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                        <p style="color: #666; font-size: 12px; margin-top: 10px;">Priyanshu Sarkar</p>
+                    </div>
+                    
+                    <!-- PayPal Details -->
+                    <div class="form-group">
+                        <label style="color: #003087;">PayPal Email</label>
+                        <input type="email" id="paypalEmail" value="priyanshusarkar2017@gmail.com" style="border-color: #003087; color: #003087;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="color: #003087;">PayPal.me Link</label>
+                        <input type="text" id="paypalMeLink" value="https://paypal.me/PriyanshuSarkar" style="border-color: #003087;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="color: #003087;">Account Name</label>
+                        <input type="text" id="paypalName" value="Priyanshu Sarkar" style="border-color: #003087;">
+                    </div>
+                    
+                    <!-- PayPal Actions -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                        <button class="control-btn" onclick="updatePayPalSettings()" style="background: linear-gradient(45deg, #003087, #0070BA);">💾 Save Settings</button>
+                        <button class="control-btn" onclick="testPayPalLink()" style="background: linear-gradient(45deg, #0070BA, #009CDE);">🧪 Test Link</button>
+                    </div>
+                    
+                    <!-- PayPal Stats -->
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(0, 48, 135, 0.1); border-radius: 10px;">
+                        <h4 style="color: #003087; margin-bottom: 10px; font-size: 14px;">📊 PayPal Statistics</h4>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
+                            <div>
+                                <div style="font-size: 20px; color: #0070BA; font-weight: bold;">₹0</div>
+                                <div style="font-size: 11px; color: #888;">Today's PayPal</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 20px; color: #0070BA; font-weight: bold;">₹0</div>
+                                <div style="font-size: 11px; color: #888;">This Month</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 20px; color: #0070BA; font-weight: bold;">0</div>
+                                <div style="font-size: 11px; color: #888;">Transactions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>📊 Quick Actions</h3>
+                    <button class="control-btn" style="margin-bottom: 10px;" onclick="showNotification('Content editor opened', 'success')">Edit Website Content</button>
+                    <button class="control-btn" style="margin-bottom: 10px;" onclick="showNotification('Analytics dashboard', 'success')">View Analytics</button>
+                    <button class="control-btn" onclick="showNotification('Backup created successfully', 'success')">Create Backup</button>
+                </div>
+                
+                <button class="login-btn" onclick="logoutHost()" style="margin-top: 30px; background: linear-gradient(45deg, #ff4444, #cc0000);">
+                    🚪 Logout
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ayan Web Studio. All rights reserved. Designed by Rt Ayan</p>
+        <p style="color: var(--primary); margin-top: 10px;">AI Powered Premium Website Solutions</p>
+        <p style="color: #aaa; margin-top: 10px; font-size: 14px;">
+            🌍 Serving clients worldwide | 🇮🇳 Based in India
+        </p>
+    </footer>
+    
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span>AI Assistant</span>
+                <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <div class="message bot">Hello! I'm your AI assistant. How can I help you today? Ask me about our services, pricing, or international payments!</div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Currency conversion rates
+        const currencyRates = {
+            INR: { symbol: '₹', rate: 1 },
+            USD: { symbol: '$', rate: 0.012 },
+            EUR: { symbol: '€', rate: 0.011 },
+            GBP: { symbol: '£', rate: 0.0095 },
+            AUD: { symbol: 'A$', rate: 0.018 }
+        };
+        
+        let currentCurrency = 'INR';
+        
+        // Owner Password - CHANGE THIS TO YOUR OWN PASSWORD
+        const OWNER_PASSWORD = "ayan2025";
+        
+        // Loading Animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+                document.querySelector('.bg-animation').appendChild(particle);
+            }
+        }
+        createParticles();
+        
+        // Currency Conversion
+        function changeCurrency(currency) {
+            currentCurrency = currency;
+            const prices = document.querySelectorAll('.price');
+            prices.forEach(priceEl => {
+                const inrPrice = parseInt(priceEl.dataset.inr);
+                if (!isNaN(inrPrice)) {
+                    const convertedPrice = Math.round(inrPrice * currencyRates[currency].rate);
+                    priceEl.textContent = currencyRates[currency].symbol + convertedPrice.toLocaleString();
+                }
+            });
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        
+        function closeMenu() {
+            document.querySelector('.nav-links').classList.remove('active');
+        }
+        
+        // Chatbot functionality
+        function toggleChatbot() {
+            document.getElementById('chatbotWindow').classList.toggle('active');
+        }
+        
+        const intelligentResponses = {
+            greetings: ['hi', 'hello', 'hey', 'good morning', 'good evening', 'namaste'],
+            pricing: ['price', 'cost', 'how much', 'pricing', 'rate', 'charges', 'fee'],
+            services: ['service', 'what do you do', 'what can you do', 'offerings'],
+            website: ['website', 'web development', 'web design', 'site'],
+            photography: ['photo', 'photography', 'shoot', 'camera', 'picture'],
+            editing: ['edit', 'editing', 'retouch', 'photoshop'],
+            poster: ['poster', 'design', 'graphic', 'banner'],
+            presentation: ['presentation', 'ppt', 'slides', 'pitch deck'],
+            payment: ['payment', 'pay', 'upi', 'paypal', 'stripe', 'razorpay'],
+            contact: ['contact', 'reach', 'call', 'whatsapp', 'email'],
+            timing: ['when', 'time', 'available', 'working hours'],
+            location: ['where', 'location', 'address', 'india', 'kolkata']
+        };
+        
+        function getIntelligentResponse(message) {
+            const msg = message.toLowerCase();
+            
+            if (intelligentResponses.greetings.some(word => msg.includes(word))) {
+                return "Hello! 👋 I'm Ayan's assistant. I'd be happy to help you! Are you looking for website development, photography services, or design work?";
+            }
+            
+            if (intelligentResponses.pricing.some(word => msg.includes(word))) {
+                if (msg.includes('website') || msg.includes('web')) {
+                    return `Our website packages start from ${currentCurrency === 'INR' ? '₹10,000' : currencyRates[currentCurrency].symbol + Math.round(10000 * currencyRates[currentCurrency].rate)}. We have Silver, Gold, and Diamond packages with different features. Would you like to know more about a specific package?`;
+                }
+                if (msg.includes('photo') && (msg.includes('shoot') || msg.includes('shooting'))) {
+                    return "Our professional photo shooting packages: Silver ₹11,000 (30-40 pics), Gold ₹31,000 (100-150 pics), Diamond ₹75,000 (150+ pics). These are available only in India. Would you like to discuss requirements?";
+                }
+                if (msg.includes('edit') || msg.includes('editing')) {
+                    return "Photo editing starts from ₹500 per image for basic edits. Professional editing is ₹1,500 per image. We also have bulk packages. What type of editing do you need?";
+                }
+                if (msg.includes('poster') || msg.includes('design')) {
+                    return "Single poster design is ₹1,500. We have bundle packages too - 5 posters for ₹6,000 or monthly package with 15 designs for ₹15,000. What are you looking to create?";
+                }
+                if (msg.includes('product')) {
+                    return "Our AI-powered product photography package is ₹6,000. It includes professional shoot with AI enhancement, multiple angles, background removal, and 15-20 final images. Perfect for e-commerce!";
+                }
+                return `We offer various services with different pricing. Our website development starts from ₹10,000, photo editing from ₹500, and poster design from ₹1,500. Which service are you interested in?`;
+            }
+            
+            if (intelligentResponses.services.some(word => msg.includes(word))) {
+                return "I offer: 🌐 Website Development, 📸 Photography Services (India), 🎨 Photo Editing, 🖼️ Poster Design, 📊 Presentations, 📦 Product Photography with AI. Everything is created with professional quality and cutting-edge technology. What interests you?";
+            }
+            
+            if (intelligentResponses.website.some(word => msg.includes(word))) {
+                return "I create stunning AI-powered websites! Our packages: Silver (₹10,000) - basic 5-page site, Gold (₹25,000) - 3D UI with dashboard, Diamond (₹50,000) - premium unlimited pages with full automation. Which features are you looking for?";
+            }
+            
+            if (intelligentResponses.photography.some(word => msg.includes(word))) {
+                return "I offer professional photography services in India! Packages: Silver ₹11,000 (11 days, 30-40 edited pics), Gold ₹31,000 (7 days, 100-150 pics), Diamond ₹75,000 (5 days, 150+ pics). ⚠️ Client covers all expenses (travel, food, hotel). Available in Kolkata and major cities. Shall I connect you via WhatsApp?";
+            }
+            
+            if (intelligentResponses.payment.some(word => msg.includes(word))) {
+                if (msg.includes('photo shoot') || msg.includes('photography')) {
+                    return "For photography services, payment is Cash or UPI only (no online payment). 50% advance to confirm booking, 50% on shoot day. All expenses (travel, food, hotel) must be covered by client. Contact via WhatsApp: +91 9832645792";
+                }
+                if (msg.includes('paypal')) {
+                    return "💳 PayPal Payment Options:\n\n📧 Email: priyanshusarkar2017@gmail.com\n🌐 PayPal.me: https://paypal.me/PriyanshuSarkar\n\nYou can scan the QR code on our PayPal Payment page or click the PayPal.me link to pay instantly. Perfect for international clients!";
+                }
+                return `We accept multiple payment methods:\n🇮🇳 India: UPI, Razorpay, Google Pay\n🌍 International: PayPal (priyanshusarkar2017@gmail.com), Stripe, Bank Transfer\n\nVisit our PayPal Payment section to scan QR code or pay via PayPal.me!`;
+            }
+            
+            if (intelligentResponses.contact.some(word => msg.includes(word))) {
+                return "📱 Phone/WhatsApp: +91 9832645792\n💳 UPI: 9832645792@kotak811\n💳 PayPal: priyanshusarkar2017@gmail.com\n🌐 PayPal.me: https://paypal.me/PriyanshuSarkar\n\nFor photo shooting, please contact via WhatsApp only! How can I help you further?";
+            }
+            
+            if (intelligentResponses.timing.some(word => msg.includes(word))) {
+                return "I'm available 24/7 for inquiries! Typical response time is within a few hours. For urgent projects, WhatsApp is fastest: +91 9832645792. What's your timeline for the project?";
+            }
+            
+            if (intelligentResponses.location.some(word => msg.includes(word))) {
+                return "Based in Kolkata, India 🇮🇳 but serving clients worldwide! Photography services available in India (Kolkata, Mumbai, Delhi, Bangalore). All other services (web design, editing, posters) available globally with online delivery. Where are you located?";
+            }
+            
+            const responses = [
+                "That's a great question! I'd love to help you with that. Could you tell me a bit more about what you're looking for - website, photography, or design services?",
+                "I understand! Let me help you with that. Are you interested in our website development, photography packages, or design services? Each has different options.",
+                "Absolutely! I can assist you with that. Would you like to know about pricing, see our portfolio, or discuss your specific requirements?",
+                "Thanks for asking! To give you the best information, could you let me know which service interests you most - web development, photo services, or creative design work?"
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, 'user');
+                input.value = '';
+                
+                setTimeout(() => {
+                    const response = getIntelligentResponse(message);
+                    addMessage(response, 'bot');
+                }, 800);
+            }
+        }
+        
+        function addMessage(text, sender) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        function handleChatKeypress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // ==================== FIXED HOST CONTROL PANEL FUNCTIONS ====================
+        
+        // Show notification helper
+        function showNotification(message, type) {
+            // Remove existing notifications
+            const existingNotif = document.querySelector('.notification');
+            if (existingNotif) existingNotif.remove();
+            
+            const notif = document.createElement('div');
+            notif.className = `notification ${type}`;
+            notif.textContent = message;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                if (notif && notif.parentNode) {
+                    notif.remove();
+                }
+            }, 3000);
+        }
+        
+        // FIXED: Handle Host Login
+        function handleHostLogin() {
+            const passwordInput = document.getElementById('hostPassword');
+            const password = passwordInput.value;
+            
+            console.log('Login attempt with password:', password);
+            
+            if (password === OWNER_PASSWORD) {
+                // Password correct - show control panel
+                const loginForm = document.getElementById('loginForm');
+                const controlPanel = document.getElementById('controlPanelContent');
+                
+                // Hide login form
+                loginForm.style.display = 'none';
+                
+                // Show control panel with animation
+                controlPanel.classList.add('active');
+                
+                // Clear password
+                passwordInput.value = '';
+                
+                // Show success notification
+                showNotification('✅ Welcome Owner! Control Panel Opened', 'success');
+                
+                // Initialize fake data for control panel
+                initializeFakeControlPanel();
+                
+                // Scroll to control panel
+                setTimeout(() => {
+                    controlPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+                
+            } else {
+                // Wrong password
+                showNotification('❌ Wrong Password! Try: ayan2025', 'error');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+            
+            return false;
+        }
+        
+        // FIXED: Logout Host
+        function logoutHost() {
+            const loginForm = document.getElementById('loginForm');
+            const controlPanel = document.getElementById('controlPanelContent');
+            
+            // Show login form
+            loginForm.style.display = 'block';
+            
+            // Hide control panel
+            controlPanel.classList.remove('active');
+            
+            // Show notification
+            showNotification('👋 Logged out successfully!', 'success');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+        }
+        
+        function toggleJobAvailability(element, jobName) {
+            element.classList.toggle('active');
+            const isActive = element.classList.contains('active');
+            const status = isActive ? 'AVAILABLE' : 'NOT AVAILABLE';
+            const color = isActive ? '#00f0ff' : '#ff4444';
+            
+            showNotification(`${jobName}: ${status}`, isActive ? 'success' : 'error');
+            console.log(`Job availability updated: ${jobName} - ${status}`);
+        }
+        
+        function updateThemeColor(color) {
+            document.documentElement.style.setProperty('--primary', color);
+            showNotification('🎨 Theme color updated!', 'success');
+        }
+        
+        // Job Management Functions
+        function addNewJob() {
+            const title = document.getElementById('newJobTitle').value.trim();
+            const desc = document.getElementById('newJobDesc').value.trim();
+            
+            if (!title || !desc) {
+                showNotification('❌ Please fill in both job title and description', 'error');
+                return;
+            }
+            
+            const jobsList = document.getElementById('jobsList');
+            const newJob = document.createElement('div');
+            newJob.className = 'job-item';
+            newJob.style.cssText = 'padding: 15px; background: rgba(0, 240, 255, 0.1); border: 2px solid var(--primary); border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;';
+            newJob.innerHTML = `
+                <div>
+                    <div style="font-weight: bold; color: var(--primary);">${title}</div>
+                    <div style="font-size: 14px; color: #aaa; margin-top: 5px;">${desc}</div>
+                    <div style="font-size: 12px; color: #888; margin-top: 5px;">Posted: Just now | Applications: 0</div>
+                </div>
+                <button onclick="closeJob(this)" style="padding: 8px 20px; background: #ff4444; border: none; border-radius: 8px; color: #fff; cursor: pointer; font-weight: bold;">Close Job</button>
+            `;
+            
+            jobsList.insertBefore(newJob, jobsList.firstChild);
+            
+            // Clear form
+            document.getElementById('newJobTitle').value = '';
+            document.getElementById('newJobDesc').value = '';
+            
+            showNotification('✅ New job posted successfully!', 'success');
+        }
+        
+        function closeJob(button) {
+            const jobItem = button.closest('.job-item');
+            const jobTitle = jobItem.querySelector('div > div').textContent;
+            
+            if (confirm(`Are you sure you want to close "${jobTitle}" job posting?`)) {
+                jobItem.style.transition = 'all 0.3s ease';
+                jobItem.style.opacity = '0';
+                jobItem.style.transform = 'translateX(-100%)';
+                
+                setTimeout(() => {
+                    jobItem.remove();
+                    showNotification(`❌ Job "${jobTitle}" closed`, 'error');
+                }, 300);
+            }
+        }
+        
+        // ==================== JOB CLOSE/OPEN FUNCTIONS ====================
+        
+        // Store closed jobs in memory (in production, use localStorage or database)
+        const closedJobs = new Set();
+        
+        // Toggle individual job close/open
+        function toggleJobClose(button, jobId, jobName) {
+            const jobItem = button.closest('.job-close-item');
+            const statusSpan = jobItem.querySelector('span:last-of-type');
+            
+            if (closedJobs.has(jobId)) {
+                // OPEN the job
+                closedJobs.delete(jobId);
+                jobItem.style.background = 'rgba(0, 255, 100, 0.1)';
+                jobItem.style.borderColor = 'rgba(0, 255, 100, 0.3)';
+                statusSpan.textContent = '● OPEN';
+                statusSpan.style.color = '#00ff00';
+                button.textContent = 'CLOSE';
+                button.style.background = '#ff4444';
+                showNotification(`✅ "${jobName}" is now OPEN for orders!`, 'success');
+            } else {
+                // CLOSE the job
+                if (confirm(`Are you sure you want to CLOSE "${jobName}"? Clients won't be able to order this service.`)) {
+                    closedJobs.add(jobId);
+                    jobItem.style.background = 'rgba(255, 68, 68, 0.1)';
+                    jobItem.style.borderColor = 'rgba(255, 68, 68, 0.3)';
+                    statusSpan.textContent = '● CLOSED';
+                    statusSpan.style.color = '#ff4444';
+                    button.textContent = 'OPEN';
+                    button.style.background = '#00ff00';
+                    button.style.color = '#000';
+                    showNotification(`🚫 "${jobName}" is now CLOSED!`, 'error');
+                }
+            }
+            
+            updateJobCounter();
+        }
+        
+        // Close all jobs at once
+        function closeAllJobs() {
+            if (!confirm('⚠️ Are you sure you want to CLOSE ALL jobs? This will stop all new orders!')) {
+                return;
+            }
+            
+            const allJobItems = document.querySelectorAll('.job-close-item');
+            allJobItems.forEach(item => {
+                const jobId = item.dataset.job;
+                const button = item.querySelector('button');
+                const statusSpan = item.querySelector('span:last-of-type');
+                
+                closedJobs.add(jobId);
+                item.style.background = 'rgba(255, 68, 68, 0.1)';
+                item.style.borderColor = 'rgba(255, 68, 68, 0.3)';
+                statusSpan.textContent = '● CLOSED';
+                statusSpan.style.color = '#ff4444';
+                button.textContent = 'OPEN';
+                button.style.background = '#00ff00';
+                button.style.color = '#000';
+            });
+            
+            updateJobCounter();
+            showNotification('🚫 ALL JOBS CLOSED! No new orders will be accepted.', 'error');
+        }
+        
+        // Open all jobs at once
+        function openAllJobs() {
+            if (!confirm('✅ Open ALL jobs? This will allow new orders for all services.')) {
+                return;
+            }
+            
+            const allJobItems = document.querySelectorAll('.job-close-item');
+            allJobItems.forEach(item => {
+                const jobId = item.dataset.job;
+                const button = item.querySelector('button');
+                const statusSpan = item.querySelector('span:last-of-type');
+                
+                closedJobs.delete(jobId);
+                item.style.background = 'rgba(0, 255, 100, 0.1)';
+                item.style.borderColor = 'rgba(0, 255, 100, 0.3)';
+                statusSpan.textContent = '● OPEN';
+                statusSpan.style.color = '#00ff00';
+                button.textContent = 'CLOSE';
+                button.style.background = '#ff4444';
+                button.style.color = '#fff';
+            });
+            
+            updateJobCounter();
+            showNotification('✅ ALL JOBS OPENED! Ready to accept new orders.', 'success');
+        }
+        
+        // Update job counter display
+        function updateJobCounter() {
+            const totalJobs = document.querySelectorAll('.job-close-item').length;
+            const closedCount = closedJobs.size;
+            const openCount = totalJobs - closedCount;
+            
+            document.getElementById('openJobsCount').textContent = `${openCount} OPEN`;
+            document.getElementById('closedJobsCount').textContent = `${closedCount} CLOSED`;
+        }
+        
+        // Check if a specific job is closed (can be called from order buttons)
+        function isJobClosed(jobId) {
+            return closedJobs.has(jobId);
+        }
+        
+        // Get list of all closed jobs
+        function getClosedJobs() {
+            return Array.from(closedJobs);
+        }
+        
+        // ==================== PAYPAL FUNCTIONS ====================
+        
+        // PayPal Settings
+        let paypalSettings = {
+            email: 'priyanshusarkar2017@gmail.com',
+            meLink: 'https://paypal.me/PriyanshuSarkar',
+            name: 'Priyanshu Sarkar',
+            enabled: true
+        };
+        
+        // Update PayPal settings
+        function updatePayPalSettings() {
+            const email = document.getElementById('paypalEmail').value;
+            const meLink = document.getElementById('paypalMeLink').value;
+            const name = document.getElementById('paypalName').value;
+            
+            if (!email || !meLink || !name) {
+                showNotification('❌ Please fill in all PayPal fields', 'error');
+                return;
+            }
+            
+            // Update settings
+            paypalSettings.email = email;
+            paypalSettings.meLink = meLink;
+            paypalSettings.name = name;
+            
+            // In production, save to database/localStorage
+            // localStorage.setItem('paypalSettings', JSON.stringify(paypalSettings));
+            
+            showNotification('✅ PayPal settings saved successfully!', 'success');
+            console.log('PayPal Settings Updated:', paypalSettings);
+        }
+        
+        // Test PayPal link
+        function testPayPalLink() {
+            const meLink = document.getElementById('paypalMeLink').value;
+            if (meLink) {
+                window.open(meLink, '_blank');
+                showNotification('🧪 Opening PayPal.me link...', 'success');
+            } else {
+                showNotification('❌ PayPal.me link is empty', 'error');
+            }
+        }
+        
+        // Toggle PayPal availability
+        function togglePayPal(element) {
+            paypalSettings.enabled = element.classList.contains('active');
+            const status = paypalSettings.enabled ? 'ENABLED' : 'DISABLED';
+            showNotification(`💳 PayPal ${status}`, paypalSettings.enabled ? 'success' : 'error');
+        }
+        
+        // Get PayPal settings (for use in other parts of the site)
+        function getPayPalSettings() {
+            return paypalSettings;
+        }
+        
+        // Language switcher
+        const translations = {
+            en: {
+                tagline: "AI Powered Premium Website Solutions",
+                hero: "Build Your Dream Website With AI Power",
+                subhero: "Premium futuristic websites for brands who want to stand out"
+            },
+            hi: {
+                tagline: "AI संचालित प्रीमियम वेबसाइट समाधान",
+                hero: "AI शक्ति के साथ अपनी ड्रीम वेबसाइट बनाएं",
+                subhero: "ब्रांड्स के लिए प्रीमियम भविष्यवादी वेबसाइटें"
+            },
+            bn: {
+                tagline: "AI চালিত প্রিমিয়াম ওয়েবসাইট সমাধান",
+                hero: "AI শক্তি দিয়ে আপনার স্বপ্নের ওয়েবসাইট তৈরি করুন",
+                subhero: "ব্র্যান্ডগুলির জন্য প্রিমিয়াম ভবিষ্যত ওয়েবসাইট"
+            },
+            es: {
+                tagline: "Soluciones Premium de Sitios Web con IA",
+                hero: "Construye el Sitio Web de Tus Sueños con IA",
+                subhero: "Sitios web futuristas premium para marcas que quieren destacar"
+            },
+            fr: {
+                tagline: "Solutions de Sites Web Premium Alimentés par l'IA",
+                hero: "Créez le Site Web de Vos Rêves avec l'IA",
+                subhero: "Sites web futuristes premium pour les marques qui veulent se démarquer"
+            }
+        };
+        
+        function changeLanguage(lang) {
+            if (translations[lang]) {
+                document.querySelector('.tagline').textContent = translations[lang].tagline;
+                document.querySelector('.hero-content h1').textContent = translations[lang].hero;
+                document.querySelector('.hero-content p').textContent = translations[lang].subhero;
+            }
+        }
+        
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.bg-animation');
+            if (parallax) {
+  parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+        
+        // ==================== FAKE DATA GENERATOR - ADDED ====================
+        
+        const fakeData = {
+            stats: {
+                todayVisitors: 0,
+                totalVisitors: 0,
+                todayProfit: 0,
+                monthlyProfit: 0,
+                totalProfit: 0,
+                pendingPayments: 0
+            },
+            orders: [
+                { id: '#ORD-1001', client: 'Sarah Johnson', service: 'Premium Website - Gold', amount: '₹35,000', status: 'In Progress', date: '2 hours ago', email: 'sarah.j@example.com' },
+                { id: '#ORD-1002', client: 'Raj Malhotra', service: 'Photo Shoot - Silver', amount: '₹11,000', status: 'Completed', date: '5 hours ago', email: 'raj.m@business.com' },
+                { id: '#ORD-1003', client: 'Emily Chen', service: 'Logo Design', amount: '₹8,000', status: 'Pending Payment', date: '1 day ago', email: 'emily.chen@startup.io' },
+                { id: '#ORD-1004', client: 'Amit Sharma', service: 'Business Presentation', amount: '₹6,500', status: 'In Progress', date: '1 day ago', email: 'amit@consulting.in' },
+                { id: '#ORD-1005', client: 'Jessica Williams', service: 'Website - Silver', amount: '₹15,000', status: 'Completed', date: '2 days ago', email: 'jessica.w@gmail.com' }
+            ],
+            activities: [
+                '🌟 New order received - Landing Page Design',
+                '💬 Message from Alex Kumar about Photography',
+                '📊 Traffic spike detected (+45% today)',
+                '✅ Payment confirmed - ₹25,000 from Priya Singh',
+                '🎨 New client inquiry - Logo redesign project',
+                '📧 3 new email subscriptions',
+                '🔔 Reminder: Client meeting tomorrow at 3 PM',
+                '💰 PayPal payment received - ₹8,000',
+                '🚀 Website deployed for Raj Enterprises',
+                '📱 Mobile optimization request - E-commerce site'
+            ]
+        };
+        
+        function randomBetween(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        function initializeFakeData() {
+            fakeData.stats.todayVisitors = randomBetween(50, 150);
+            fakeData.stats.totalVisitors = randomBetween(800, 2000);
+            fakeData.stats.todayProfit = randomBetween(3000, 8000);
+            fakeData.stats.monthlyProfit = randomBetween(45000, 85000);
+            fakeData.stats.totalProfit = randomBetween(180000, 350000);
+            fakeData.stats.pendingPayments = randomBetween(8000, 18000);
+            console.log('✅ Fake data initialized');
+        }
+        
+        function updateDashboardWithFakeData() {
+            const profitCards = document.querySelectorAll('.control-section div[style*="grid"] > div');
+            if (profitCards.length >= 4) {
+                profitCards[0].querySelector('div:last-child').textContent = `₹${fakeData.stats.todayProfit.toLocaleString('en-IN')}`;
+                profitCards[1].querySelector('div:last-child').textContent = `₹${fakeData.stats.monthlyProfit.toLocaleString('en-IN')}`;
+                profitCards[2].querySelector('div:last-child').textContent = `₹${fakeData.stats.totalProfit.toLocaleString('en-IN')}`;
+                profitCards[3].querySelector('div:last-child').textContent = `₹${fakeData.stats.pendingPayments.toLocaleString('en-IN')}`;
+            }
+        }
+        
+        function populateOrdersTable() {
+            const tbody = document.querySelector('.control-section table tbody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            fakeData.orders.forEach(order => {
+                const statusColor = order.status === 'Completed' ? '#00ff00' : order.status === 'In Progress' ? '#00d4ff' : '#ff6b00';
+                const statusIcon = order.status === 'Completed' ? '✓' : order.status === 'In Progress' ? '⏳' : '⏸';
+                
+                const row = `
+                    <tr style="animation: fadeIn 0.3s ease;">
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">${order.client}</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">${order.service}</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">${order.amount}</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <span style="color: ${statusColor};">${statusIcon} ${order.status}</span>
+                        </td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <button onclick="viewOrderDetails('${order.id}')" style="padding: 6px 15px; background: var(--primary); border: none; border-radius: 5px; color: #000; cursor: pointer;">View</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+        
+        function viewOrderDetails(orderId) {
+            const order = fakeData.orders.find(o => o.id === orderId);
+            if (!order) return;
+            
+            const details = `📋 Order: ${order.id}\n👤 Client: ${order.client}\n📧 Email: ${order.email}\n🎯 Service: ${order.service}\n💰 Amount: ${order.amount}\n📊 Status: ${order.status}\n📅 Placed: ${order.date}`;
+            alert(details);
+            showNotification(`Viewing details for ${order.id}`, 'success');
+        }
+        
+        function updateActivityFeed() {
+            const feedContainer = document.getElementById('activityFeed');
+            if (!feedContainer) return;
+            
+            const randomActivity = fakeData.activities[Math.floor(Math.random() * fakeData.activities.length)];
+            const activityItem = document.createElement('div');
+            activityItem.style.cssText = 'padding: 10px; background: rgba(0, 240, 255, 0.05); border-left: 3px solid var(--primary); margin-bottom: 8px; border-radius: 5px; font-size: 14px;';
+            activityItem.textContent = randomActivity;
+            
+            feedContainer.insertBefore(activityItem, feedContainer.firstChild);
+            while (feedContainer.children.length > 5) feedContainer.removeChild(feedContainer.lastChild);
+        }
+        
+        function startLiveUpdates() {
+            setInterval(() => {
+                updateActivityFeed();
+                const change = randomBetween(-5, 15);
+                fakeData.stats.todayVisitors += change;
+            }, 10000);
+            
+            console.log('🔄 Live updates started');
+        }
+        
+        function initializeFakeControlPanel() {
+            initializeFakeData();
+            updateDashboardWithFakeData();
+            populateOrdersTable();
+            startLiveUpdates();
+            
+            const controlContent = document.getElementById('controlPanelContent');
+            if (controlContent && !document.getElementById('activityFeed')) {
+                const activitySection = document.createElement('div');
+                activitySection.className = 'control-section';
+                activitySection.innerHTML = '<h3>📊 Live Activity Feed</h3><div id="activityFeed" style="max-height: 300px; overflow-y: auto;"></div>';
+                controlContent.appendChild(activitySection);
+            }
+            
+            for (let i = 0; i < 3; i++) updateActivityFeed();
+            console.log('✅ Fake control panel initialized with realistic data');
+        }
+        
+    </script>
+</body>
+</html>
